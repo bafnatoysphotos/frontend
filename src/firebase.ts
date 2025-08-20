@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth, RecaptchaVerifier } from 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD4hfhVpBgdZqQ0PoqQZ0Yrs8GekrbjBjY",
@@ -14,12 +14,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-// ✅ Corrected reCAPTCHA setup function
+// ✅ Corrected reCAPTCHA setup
 export function setupRecaptcha(containerId: string) {
-  return new RecaptchaVerifier(auth, containerId, {
-    size: 'invisible',
-    callback: () => {
-      console.log("reCAPTCHA solved");
+  return new RecaptchaVerifier(
+    containerId,            // element ID
+    {
+      size: "invisible",
+      callback: () => {
+        console.log("reCAPTCHA solved ✅");
+      },
     },
-  });
+    auth
+  );
 }
+
+export { signInWithPhoneNumber };
