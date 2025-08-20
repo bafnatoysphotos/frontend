@@ -7,8 +7,8 @@ node_modules/
 coverage/
 
 # production
-build/
 dist/
+build/
 
 # misc
 .DS_Store
@@ -28,8 +28,6 @@ yarn-error.log*
 .idea/
 *.swp
 
-# Next.js
+# Next.js (not needed but in case)
 .next/
 out/
-"node_modules/" 
-"node_modules/" 
