@@ -3,10 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",   // ✅ correct for Vercel (public root)
-  server: {
-    port: 8082 // only affects local dev
-  },
+  base: "/",   // ✅ Vercel ke liye sahi hai
   build: {
     outDir: "dist"
   }
